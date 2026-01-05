@@ -1,0 +1,34 @@
+# Build and binary artifacts
+build/
+output/
+*.exe
+*.dll
+*.pdb
+*.lib
+*.obj
+*.exp
+
+# Local datasets (keep only OBJ, ignore PLY)
+dataset/**/*.ply
+dataset/*.ply
+
+# CMake intermediates
+CMakeFiles/
+CMakeCache.txt
+*.dir/
+*.cmake
+cmake_install.cmake
+Makefile
+
+# IDE and user settings
+.vscode/
+*.user
+*.log
+
+# Visual Studio generated
+*.sln
+*.vcxproj*
+.vs/
+
+# CUDA/OptiX temporary
+*.ptx
