@@ -1,5 +1,6 @@
 add_library(visualizerLib
     UI/FileDialog.cpp
+    UI/ImageView.cpp
 )
 
 target_link_libraries(visualizerLib PUBLIC
