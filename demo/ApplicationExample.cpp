@@ -19,8 +19,8 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
-using SPIN::Visualizer::Components;
-using SPIN::Visualizer::Stage;
+using ImGUIAX::Visualizer::Components;
+using ImGUIAX::Visualizer::Stage;
 
 class ExampleGUIPanel final : public Components
 {
@@ -84,14 +84,14 @@ private:
                            ImVec2(static_cast<float>(width), static_cast<float>(height)));
     }
 
-    SPIN::Visualizer::ImageView imgView;
+    ImGUIAX::Visualizer::ImageView imgView;
     GLuint textureId = 0;
     int width = 0;
     int height = 0;
     int channels = 0;
 };
 
-class DemoApplication final : public SPIN::Visualizer::Application
+class DemoApplication final : public ImGUIAX::Visualizer::Application
 {
 public:
     const char *title() const override { return "ImGUIAX GUI (Stage prototype)"; }
@@ -110,5 +110,5 @@ public:
 
 int main(int argc, char **argv)
 {
-    return SPIN::Visualizer::launch<DemoApplication>(argc, argv);
+    return ImGUIAX::Visualizer::launch<DemoApplication>(argc, argv);
 }

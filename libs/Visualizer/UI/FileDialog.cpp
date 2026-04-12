@@ -79,7 +79,7 @@ namespace
     }
 }
 
-namespace SPIN
+namespace ImGUIAX
 {
     namespace Visualizer
     {

@@ -13,7 +13,7 @@
 #include "3rdParty/helper_math.h"
 #include <vector>
 
-namespace SPIN
+namespace ImGUIAX
 {
     namespace GLSL
     {

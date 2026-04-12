@@ -8,7 +8,7 @@
 
 #include "Components.h"
 
-namespace SPIN
+namespace ImGUIAX
 {
     namespace Visualizer
     {

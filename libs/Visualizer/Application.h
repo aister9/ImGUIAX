@@ -8,7 +8,7 @@
 
 #include "Stage.h"
 
-namespace SPIN
+namespace ImGUIAX
 {
     namespace Visualizer
     {

@@ -23,7 +23,7 @@
 
 #include "UI/Components.h"
 
-namespace SPIN
+namespace ImGUIAX
 {
     namespace Visualizer
     {
@@ -244,7 +244,7 @@ namespace SPIN
     }
 }
 
-namespace SPIN
+namespace ImGUIAX
 {
     namespace Visualizer
     {

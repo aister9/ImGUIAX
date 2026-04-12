@@ -4,7 +4,7 @@
 #include <utility>
 #include <vector>
 
-namespace SPIN
+namespace ImGUIAX
 {
     namespace Visualizer
     {

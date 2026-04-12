@@ -2,7 +2,7 @@
 
 #include <algorithm>
 
-namespace SPIN
+namespace ImGUIAX
 {
     namespace Visualizer
     {
