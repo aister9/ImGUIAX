@@ -38,8 +38,8 @@ main.cpp:
 ```cpp
 #include "Visualizer/Application.h"
 
-using SPIN::Visualizer::Application;
-using SPIN::Visualizer::Stage;
+using ImGUIAX::Visualizer::Application;
+using ImGUIAX::Visualizer::Stage;
 
 class MyApp final : public Application
 {
@@ -55,7 +55,7 @@ public:
 
 int main(int argc, char **argv)
 {
-    return SPIN::Visualizer::launch<MyApp>(argc, argv);
+    return ImGUIAX::Visualizer::launch<MyApp>(argc, argv);
 }
 ```
 
