@@ -16,8 +16,10 @@
 #include <GL/glew.h>
 #include <imgui.h>
 
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+#ifndef STB_IMAGE_IMPLEMENTATION
+    #define STB_IMAGE_IMPLEMENTATION
+#endif
+#include "3rdParty/stb_image.h"
 
 using ImGUIAX::Visualizer::Components;
 using ImGUIAX::Visualizer::Stage;
