@@ -8,7 +8,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/vector_angle.hpp>
 #include <glm/gtx/string_cast.hpp>
-#include <GL/freeglut.h>
 
 #include "3rdParty/helper_math.h"
 #include <vector>
