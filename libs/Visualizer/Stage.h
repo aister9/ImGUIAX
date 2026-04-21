@@ -9,7 +9,6 @@
 #include <utility>
 #include <filesystem>
 #include <system_error>
-#include <codecvt>
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -250,12 +249,8 @@ namespace ImGUIAX
     {
         inline std::string Stage::pathToUTF8(const std::filesystem::path &path)
         {
-#if defined(_WIN32)
-            static std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-            return converter.to_bytes(path.wstring());
-#else
-            return path.string();
-#endif
+            const auto utf8Path = path.u8string();
+            return std::string(utf8Path.begin(), utf8Path.end());
         }
 
         inline bool Stage::tryLoadFontCandidates(const std::vector<std::filesystem::path> &candidates,
@@ -300,11 +295,11 @@ namespace ImGUIAX
             ImGuiIO &io = ImGui::GetIO();
             io.Fonts->Clear();
             constexpr float baseFontSize = 18.0f;
-            io.Fonts->AddFontDefault();
 
             const std::vector<std::filesystem::path> cjkCandidates = {
 #if defined(_WIN32)
                 "C:/Windows/Fonts/malgun.ttf",
+                "C:/Windows/Fonts/malgunsl.ttf",
                 "C:/Windows/Fonts/unifont.ttf",
                 "C:/Windows/Fonts/gulim.ttc"
 #elif defined(__APPLE__)
@@ -316,7 +311,11 @@ namespace ImGUIAX
                 "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc"
 #endif
             };
-            const bool cjkLoaded = tryLoadFontCandidates(cjkCandidates, baseFontSize, true, io.Fonts->GetGlyphRangesKorean());
+            const bool cjkLoaded = tryLoadFontCandidates(cjkCandidates, baseFontSize, false, io.Fonts->GetGlyphRangesKorean());
+            if (!cjkLoaded)
+            {
+                io.Fonts->AddFontDefault();
+            }
 
             const std::vector<std::filesystem::path> emojiCandidates = {
 #if defined(_WIN32)
@@ -335,14 +334,15 @@ namespace ImGUIAX
 #endif
             };
             static const ImWchar emojiRanges[] = {
-                0x0020, 0x00FF,
                 0x2000, 0x206F,
                 0x2100, 0x214F,
                 0x2190, 0x21FF,
                 0x2300, 0x23FF,
                 0x2600, 0x27FF,
                 0x2900, 0x297F,
+#if defined(IMGUI_USE_WCHAR32)
                 0x1F000, 0x1FFFF,
+#endif
                 0
             };
             const bool emojiLoaded = tryLoadFontCandidates(emojiCandidates, baseFontSize, true, emojiRanges);
